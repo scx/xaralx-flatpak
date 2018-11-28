@@ -44,11 +44,11 @@ See also:
 ### Prepare
 
 ```
-$ flatpak install flathub org.freedesktop.Sdk//1.6
+$ flatpak install flathub "org.freedesktop.Sdk//1.6"
 ```
 
 ```
-$ flatpak install flathub org.freedesktop.Platform//1.6
+$ flatpak install flathub "org.freedesktop.Platform//1.6"
 ```
 
 ```
@@ -62,7 +62,7 @@ $ git submodule update
 ### Build
 
 ```
-$ mkdir -p build && flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force-clean --install-deps-from="flathub"
+$ mkdir -p "build" && flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force-clean --install-deps-from="flathub"
 ```
 
 ### Test
@@ -71,10 +71,40 @@ $ mkdir -p build && flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force
 $ flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "sh"
 ```
 
-### Run
+### Test run
 
 ```
 $ flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "xaralx"
+```
+
+### Install
+
+```
+$ flatpak-builder --repo="repo" --force-clean "build" "org.xaraxtreme.XaraLX.yaml"
+```
+
+```
+$ flatpak --user remote-add --no-gpg-verify "xaralx" "repo"
+```
+
+```
+$ flatpak --user install "xaralx" "org.xaraxtreme.XaraLX"
+```
+
+### Run
+
+```
+$ flatpak run "org.xaraxtreme.XaraLX"
+```
+
+### Uninstall
+
+```
+$ flatpak --user uninstall "org.xaraxtreme.XaraLX"
+```
+
+```
+$ flatpak --user remote-delete "xaralx"
 ```
 
 See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
