@@ -62,7 +62,7 @@ $ git submodule update
 ### Build
 
 ```
-$ mkdir -p "build" && flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force-clean --install-deps-from="flathub"
+$ flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force-clean --install-deps-from="flathub"
 ```
 
 ### Test
