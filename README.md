@@ -18,13 +18,13 @@ This repo is about the flatpak package.
 For EL7:
 
 ```
-# yum install 'flatpak' 'flatpak-builder'
+yum install 'flatpak' 'flatpak-builder'
 ```
 
 You may also wish to install the `xdg-desktop-portal*` packages:
 
 ```
-# yum install 'xdg-desktop-portal*'
+yum install 'xdg-desktop-portal*'
 ```
 
 See also:
@@ -34,7 +34,7 @@ See also:
 ### Adding repository
 
 ```
-$ flatpak remote-add --if-not-exists "flathub" "https://dl.flathub.org/repo/flathub.flatpakrepo"
+flatpak remote-add --if-not-exists "flathub" "https://dl.flathub.org/repo/flathub.flatpakrepo"
 ```
 
 See also:
@@ -44,19 +44,19 @@ See also:
 ### Prepare
 
 ```
-$ flatpak install "flathub" "org.freedesktop.Sdk//1.6"
+flatpak install "flathub" "org.freedesktop.Sdk//1.6"
 ```
 
 ```
-$ flatpak install "flathub" "org.freedesktop.Platform//1.6"
+flatpak install "flathub" "org.freedesktop.Platform//1.6"
 ```
 
 ```
-$ git submodule init
+git submodule init
 ```
 
 ```
-$ git submodule update
+git submodule update
 ```
 
 ### Build
@@ -68,43 +68,43 @@ $ flatpak-builder "build" "org.xaraxtreme.XaraLX.yaml" --force-clean --install-d
 ### Test
 
 ```
-$ flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "sh"
+flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "sh"
 ```
 
 ### Test run
 
 ```
-$ flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "xaralx"
+flatpak-builder --run "build" "org.xaraxtreme.XaraLX.yaml" "xaralx"
 ```
 
 ### Install
 
 ```
-$ flatpak-builder --repo="repo" --force-clean "build" "org.xaraxtreme.XaraLX.yaml"
+flatpak-builder --repo="repo" --force-clean "build" "org.xaraxtreme.XaraLX.yaml"
 ```
 
 ```
-$ flatpak --user remote-add --no-gpg-verify "xaralx" "repo"
+flatpak --user remote-add --no-gpg-verify "xaralx" "repo"
 ```
 
 ```
-$ flatpak --user install "xaralx" "org.xaraxtreme.XaraLX"
+flatpak --user install "xaralx" "org.xaraxtreme.XaraLX"
 ```
 
 ### Run
 
 ```
-$ flatpak run "org.xaraxtreme.XaraLX"
+flatpak run "org.xaraxtreme.XaraLX"
 ```
 
 ### Uninstall
 
 ```
-$ flatpak --user uninstall "org.xaraxtreme.XaraLX"
+flatpak --user uninstall "org.xaraxtreme.XaraLX"
 ```
 
 ```
-$ flatpak --user remote-delete "xaralx"
+flatpak --user remote-delete "xaralx"
 ```
 
 See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
